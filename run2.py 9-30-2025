@@ -28,9 +28,9 @@ robot.settings(
 )
 
 while True:
-    arm_motor.run(-100)
-    print(arm_motor.load())
-    if(arm_motor.load() > 30):
+    l_arm_motor.run(-100)
+    print(l_arm_motor.load())
+    if(l_arm_motor.load() > 30):
         break;
 
 l_arm_motor.run_angle(200, 30)
