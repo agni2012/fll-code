@@ -22,13 +22,18 @@ r_arm_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 robot = DriveBase(l_motor, r_motor, 56, 159)
 
 robot.settings(
-    straight_speed = 180,
-    straight_acceleration = 275,
+    straight_speed = 500,
+    straight_acceleration = 500,
     turn_rate = 150
 )
 robot.use_gyro(True)
+r_arm_motor.run_angle(100, 155)
 robot.straight(600)
-robot.turn(-35)
-robot.straight(200)
+robot.turn(-36)
+robot.straight(175)
 r_arm_motor.run_angle(100,-150)
-robot.straight(-100)
+#robot.straight(30)
+robot.straight(-200)
+robot.turn(36)
+robot.straight(-605)
+robot.turn(-50)
