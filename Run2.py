@@ -17,8 +17,8 @@ arm_motor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
 robot = DriveBase(l_motor, r_motor, 56, 159)
 
 robot.settings(
-    straight_speed = 180,
-    straight_acceleration = 275,
+    straight_speed = 700,
+    straight_acceleration = 500,
     turn_rate = 150
 )
 #"""y
@@ -31,16 +31,36 @@ while True:
 arm_motor.run_angle(200, 30)
 
 robot.use_gyro(True)
-robot.straight(20)
-robot.turn(90)
-robot.straight(520-30)
-robot.straight(-95)
-robot.turn(-44)
-robot.straight(385)
-arm_motor.run_angle(200, 160)
-robot.turn(-17)
-robot.straight(64)
-arm_motor.run_angle(200, -150, wait = True)
-robot.turn(-45)
-#todo: get scale pan and get to home 2 (unearthed one)
+robot.settings(straight_acceleration=500);
+robot.straight(420, then = Stop.COAST_SMART);
+robot.settings(straight_acceleration=150);
+robot.straight(80);
+robot.straight(-100);
+robot.turn(-39.2);
+robot.settings(straight_acceleration=700);
+arm_motor.run_angle(70, 100, wait=False);
+robot.straight(235, then = Stop.NONE);
+arm_motor.stop();
+arm_motor.run_angle(470, 110, wait = False);
+robot.straight(170);
+robot.turn(-12);
+arm_motor.stop();
 
+robot.straight(90);#p90
+robot.turn(-1);
+arm_motor.run_angle(100, -100, wait = False);
+robot.settings(straight_acceleration=150)
+robot.straight(-45);
+robot.straight(34);
+
+robot.settings(straight_acceleration=300);
+robot.turn(57);#
+robot.straight(208);
+
+robot.settings(straight_acceleration=700);
+robot.settings(turn_acceleration=150)
+robot.settings(turn_rate=150)
+robot.turn(30);
+robot.straight(650);
+
+arm_motor.run_angle(100, -100)
