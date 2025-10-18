@@ -22,19 +22,46 @@ r_arm_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 robot = DriveBase(l_motor, r_motor, 56, 159)
 
 robot.settings(
-    straight_speed = 500,
-    straight_acceleration = 500,
+    straight_speed = 700,
+    straight_acceleration = 700,
     turn_rate = 150
 )
+
 robot.use_gyro(True)
+time = StopWatch()
+while True:
+    r_arm_motor.run(-100)
+    if(r_arm_motor.load() > 67 or time.time()>2001):
+        break;
+r_arm_motor.run_angle(100, 5)
+robot.turn(-0.7);
 robot.straight(380)
+#taking the preserved things out
 
 for i in range(5):
     r_arm_motor.run_angle(1000,80)
     r_arm_motor.run_angle(1000,-80)
 robot.turn(-26.7)
 robot.straight(270)
-robot.turn(60)
-r_arm_motor.run_angle(50,75)
-robot.straight(30)
-r_arm_motor.run_angle(50,-75)
+
+
+robot.turn(56)
+r_arm_motor.run_angle(100,90);
+robot.straight(65);
+r_arm_motor.run_time(-70000, 1000);
+robot.turn(60);
+robot.straight(30);
+robot.turn(-70);
+
+robot.straight(-20);
+robot.turn(-40);
+
+r_arm_motor.run_angle(100, 3);
+robot.straight(37);
+robot.turn(-30)
+#done
+robot.straight(-100);
+robot.turn(-120);
+robot.straight(255)
+robot.turn(-30)
+robot.straight(255)
