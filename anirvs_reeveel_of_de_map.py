@@ -26,14 +26,36 @@ robot.settings(
     straight_acceleration = 500,
     turn_rate = 150
 )
+time = StopWatch()
 robot.use_gyro(True)
-r_arm_motor.run_angle(100, 155)
+#reset arm
+while True:
+    r_arm_motor.run(-100)
+    #print(r_arm_motor.load())
+    if(r_arm_motor.load() > 100 or time.time()>2001):
+        break;
+r_arm_motor.run_angle(100,200)
+
+#move toward mission
 robot.straight(600)
-robot.turn(-36)
+
+#turn to engage into mission
+robot.turn(-34)
+
+#move into mission
 robot.straight(175)
+
+#raise arm to catch artifact
 r_arm_motor.run_angle(100,-150)
-#robot.straight(30)
+
+#back away from mission
 robot.straight(-200)
-robot.turn(36)
+
+#turn to exit mission
+robot.turn(34)
+
+# back to home
 robot.straight(-605)
+
+#ANRIV WHAT IS THIS FOR
 robot.turn(-50)
