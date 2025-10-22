@@ -35,8 +35,8 @@ while True:
         break;
 r_arm_motor.run_angle(100, 5)
 robot.turn(-0.7);
-robot.straight(380)
-#taking the preserved things out
+robot.straight(375)
+#taking the preerved things out
 
 for i in range(5):
     r_arm_motor.run_angle(1000,80)
@@ -50,14 +50,14 @@ r_arm_motor.run_angle(100,90);
 robot.straight(65);
 r_arm_motor.run_time(-70000, 1000);
 robot.turn(60);
-robot.straight(30);
+robot.straight(10);
 robot.turn(-70);
 
 robot.straight(-20);
 robot.turn(-40);
 
 r_arm_motor.run_angle(100, 3);
-robot.straight(37);
+robot.straight(20);
 robot.turn(-30)
 #done
 robot.straight(-100);
